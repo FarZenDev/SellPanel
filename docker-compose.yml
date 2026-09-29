@@ -1,0 +1,12 @@
+services:
+  sellpanel:
+    build: .
+    container_name: sellpanel
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      # Mot de passe d'accès au panel (fortement recommandé si le panel est accessible depuis Internet)
+      APP_PASSWORD: ${APP_PASSWORD:-}
+    volumes:
+      - ./data:/data
